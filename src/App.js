@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './assets/Styles/Theme.css';
+
 import HomePage from './pages/HomePage/HomePage';
 import HistoryPage from './pages/HistoryPage/HistoryPage';
 import BookmarkPage from './pages/BookmarkPage/BookmarkPage';
