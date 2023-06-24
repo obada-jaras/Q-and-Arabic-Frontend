@@ -4,19 +4,23 @@ import HistoryPage from './pages/HistoryPage/HistoryPage';
 import BookmarkPage from './pages/BookmarkPage/BookmarkPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" component={LoginPage} />
-        <Route path="/register" component={RegisterPage} />
-        <Route path="/home" component={HomePage} />
-        <Route path="/history" component={HistoryPage} />
-        <Route path="/bookmark" component={BookmarkPage} />
-        <Route path="/" exact component={LoginPage} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/history" element={<HistoryPage />} />
+        <Route path="/bookmark" element={<BookmarkPage />} />
+        <Route path="/" exact element={<LoginPage />} />
       </Routes>
+      
+      <Footer />
     </Router>
+
   );
 }
 

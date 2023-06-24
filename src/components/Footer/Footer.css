@@ -1,0 +1,12 @@
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1em 0;
+}
+
+footer a {
+    color: #22A39F;
+}
