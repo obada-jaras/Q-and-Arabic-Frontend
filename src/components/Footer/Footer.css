@@ -1,8 +1,5 @@
 footer {
     color: var(--black-color);
-    position: absolute;
-    left: 0;
-    bottom: 0;
     width: 100%;
     direction: ltr;
     text-align: center;

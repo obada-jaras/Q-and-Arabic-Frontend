@@ -3,7 +3,7 @@ import LoginForm from './LoginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <div className="container d-flex flex-column text-center vh-100 py-5">
+    <div className="container d-flex flex-column text-center py-5">
       <div className="row">
         <div className="col">
           <h2 className="mt-5">تسجيل الدخول</h2>

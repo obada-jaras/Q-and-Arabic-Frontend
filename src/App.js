@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-route
 import { Container } from 'reactstrap';
 
 import './assets/Styles/Theme.css';
+import './App.css'
 
 import Header from './components/Header/Header';
 import HomePage from './pages/HomePage/HomePage';
@@ -13,7 +14,6 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Footer from './components/Footer/Footer';
 
 function App() {
-  
   return (
     <Router>
       <RouteContent />
@@ -28,7 +28,7 @@ function RouteContent() {
     <>
       {location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "/" && <Header />}
 
-      <Container>
+      <Container className="main-content">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
