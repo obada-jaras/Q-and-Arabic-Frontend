@@ -24,18 +24,18 @@ const QATools = ({ qaList }) => {
     };
 
     return (
-        <div className="d-flex flex-row-reverse mb-2">
-            <Button className='border color-black bg-transparent bg-gray-hover' onClick={copyAllToClipboard}>
-                <FiCopy className="ms-2" />
-                نسخ الكل
+        <div className="d-flex flex-row-reverse">
+            <Button className='border-0 color-black bg-transparent bg-gray-hover fs-4' onClick={copyAllToClipboard}>
+                <FiCopy />
+                {/* نسخ الكل */}
             </Button>
-            <Button className='border color-black bg-transparent bg-gray-hover ms-2' onClick={addToBookmarks}>
-                <FiBookmark className="ms-2" />
-                حفظ
+            <Button className='border-0 color-black bg-transparent bg-gray-hover fs-4' onClick={addToBookmarks}>
+                <FiBookmark />
+                {/* حفظ */}
             </Button>
-            <Button className='border color-black bg-transparent bg-gray-hover ms-2' onClick={printAll}>
-                <FiPrinter className="ms-2" />
-                طباعة
+            <Button className='border-0 color-black bg-transparent bg-gray-hover fs-4' onClick={printAll}>
+                <FiPrinter />
+                {/* طباعة */}
             </Button>
         </div>
     );

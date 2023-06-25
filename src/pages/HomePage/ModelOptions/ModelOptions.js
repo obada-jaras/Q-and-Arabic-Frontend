@@ -54,7 +54,7 @@ const ModelOptions = () => {
 						value={numQuestions}
 						onChange={handleNumQuestionsChange}
 						min="1"
-						className="w-25 mx-auto"
+						className="w-25 mx-auto text-center"
 					/>
 				</Col>
 
