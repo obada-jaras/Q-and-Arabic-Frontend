@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from 'reactstrap';
 
 import Box from './Box/Box';
+import ModelOptions from './ModelOptions/ModelOptions';
 import QATools from './QATools/QATools';
 import QAList from './QAList/QAList';
 
@@ -38,6 +39,8 @@ const HomePage = () => {
 	return (
 		<div className="d-flex mt-5 flex-column ">
 			<Box />
+
+			<ModelOptions />
 
 			<div className="d-flex justify-content-center">
 				<Button
