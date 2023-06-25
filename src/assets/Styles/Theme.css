@@ -33,3 +33,7 @@
 .color-gray {
   color: var(--gray-color);
 }
+.bg-gray-hover:hover {
+  background-color: var(--gray-color) !important;
+  color: var(--black-color) !important;
+}
