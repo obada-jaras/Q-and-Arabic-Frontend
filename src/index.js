@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './index.css';
 import './assets/Styles/Fonts.css';
 import './assets/Styles/Reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/Styles/BootstrapOverride.css';
+import './index.css';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
