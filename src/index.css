@@ -1,3 +1,9 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px 0 var(--primary-color);
+}
