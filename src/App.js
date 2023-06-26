@@ -26,7 +26,7 @@ function RouteContent() {
 
   return (
     <>
-      {location.pathname !== "/login" && location.pathname !== "/register" && location.pathname !== "/" && <Header />}
+      {location.pathname !== "/login" && location.pathname !== "/register" && <Header />}
 
       <Container className="main-content">
         <Routes>
@@ -35,7 +35,7 @@ function RouteContent() {
           <Route path="/home" element={<HomePage />} />
           <Route path="/history" element={<HistoryPage />} />
           <Route path="/bookmark" element={<BookmarkPage />} />
-          <Route path="/" exact element={<LoginPage />} />
+          <Route path="/" element={<HomePage />} />
         </Routes>
       </Container>
 

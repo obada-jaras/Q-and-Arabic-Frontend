@@ -14,7 +14,7 @@ const RegisterPage = () => {
       <div className="row px-3 px-sm-0">
         <div className="col-12 col-sm-6 col-md-4 bg-light p-4 border border-dark rounded-4 my-5 mx-auto">
           <RegisterForm />
-          <p className="mt-4 text-secondary">لديك حساب بالفعل؟ <a href="/login" className="text-decoration-underline text-secondary">تسجيل الدخول</a></p>
+          <p className="mt-4 text-secondary">لديك حساب بالفعل؟ <a href="./login" className="text-decoration-underline text-secondary">تسجيل الدخول</a></p>
         </div>
       </div>
     </div>
