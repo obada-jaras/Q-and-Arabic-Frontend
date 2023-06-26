@@ -29,7 +29,7 @@ function RouteContent() {
       {location.pathname !== "/login" && location.pathname !== "/register" && <Header />}
 
       <Container className="main-content">
-        <Routes>
+        <Routes basename="/Q-and-Arabic-Frontend">
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<HomePage />} />
