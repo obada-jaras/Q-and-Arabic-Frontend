@@ -13,6 +13,7 @@ import {
 	FaCog,
 	FaSignOutAlt,
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const UserMenu = () => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -32,23 +33,41 @@ const UserMenu = () => {
 				{/* Dropdown Menu */}
 				<DropdownMenu end className="text-end">
 					<DropdownItem>
-						<FaArchive className="ms-1" /> المحفوظات
+						<Link
+							to="/bookmark"
+							className="text-decoration-none color-black"
+						>
+							<FaArchive className="ms-1" /> المحفوظات
+						</Link>
 					</DropdownItem>
 
 					<DropdownItem>
-						<FaHistory className="ms-1" /> السجل
+						<Link
+							to="/history"
+							className="text-decoration-none color-black"
+						>
+							<FaHistory className="ms-1" /> السجل
+						</Link>
 					</DropdownItem>
 
 					<DropdownItem>
-						<FaCog className="ms-1" /> إعدادات الحساب
+						<Link
+							to="/"
+							className="text-decoration-none color-black"
+						>
+							<FaCog className="ms-1" /> إعدادات الحساب
+						</Link>
 					</DropdownItem>
 
 					<DropdownItem divider />
 
 					<DropdownItem>
-						<a href="./login" className="text-decoration-none color-primary">
+						<Link
+							to="/login"
+							className="text-decoration-none color-primary"
+						>
 							<FaSignOutAlt className="ms-1" /> تسجيل الخروج
-						</a>
+						</Link>
 					</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>

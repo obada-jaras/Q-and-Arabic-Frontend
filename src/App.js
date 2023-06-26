@@ -15,7 +15,7 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Q-and-Arabic-Frontend">
       <RouteContent />
     </Router>
   );
@@ -29,7 +29,7 @@ function RouteContent() {
       {location.pathname !== "/login" && location.pathname !== "/register" && <Header />}
 
       <Container className="main-content">
-        <Routes basename="/Q-and-Arabic-Frontend">
+        <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/home" element={<HomePage />} />
