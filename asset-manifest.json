@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Q-and-Arabic-Frontend/static/css/main.eb4c5c77.css",
+    "main.js": "/Q-and-Arabic-Frontend/static/js/main.2c0d9838.js",
+    "static/js/787.2b6a91f5.chunk.js": "/Q-and-Arabic-Frontend/static/js/787.2b6a91f5.chunk.js",
+    "static/media/Poppins-Bold.ttf": "/Q-and-Arabic-Frontend/static/media/Poppins-Bold.e2abc8f5e9a67ea669ea.ttf",
+    "static/media/Vazirmatn.woff2": "/Q-and-Arabic-Frontend/static/media/Vazirmatn.309bf9abae49b6ec95eb.woff2",
+    "static/media/Tajawal.woff2": "/Q-and-Arabic-Frontend/static/media/Tajawal.90b41214ca959dd65726.woff2",
+    "index.html": "/Q-and-Arabic-Frontend/index.html",
+    "main.eb4c5c77.css.map": "/Q-and-Arabic-Frontend/static/css/main.eb4c5c77.css.map",
+    "main.2c0d9838.js.map": "/Q-and-Arabic-Frontend/static/js/main.2c0d9838.js.map",
+    "787.2b6a91f5.chunk.js.map": "/Q-and-Arabic-Frontend/static/js/787.2b6a91f5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eb4c5c77.css",
+    "static/js/main.2c0d9838.js"
+  ]
+}
