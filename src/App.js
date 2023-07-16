@@ -18,6 +18,14 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import Footer from './components/Footer/Footer';
 
+import {
+	HOME_URL,
+	HISTORY_URL,
+	BOOKMARK_URL,
+	LOGIN_URL,
+	REGISTER_URL,
+} from './constants/frontendUrls';
+
 function App() {
 	return (
 		<Router basename="/Q-and-Arabic-Frontend">
@@ -31,16 +39,16 @@ function RouteContent() {
 
 	return (
 		<>
-			{location.pathname !== '/login' &&
-				location.pathname !== '/register' && <Header />}
+			{location.pathname !== LOGIN_URL &&
+				location.pathname !== REGISTER_URL && <Header />}
 
 			<Container className="main-content">
 				<Routes>
-					<Route path="/login" element={<LoginPage />} />
-					<Route path="/register" element={<RegisterPage />} />
-					<Route path="/home" element={<HomePage />} />
-					<Route path="/history" element={<HistoryPage />} />
-					<Route path="/bookmark" element={<BookmarkPage />} />
+					<Route path={LOGIN_URL} element={<LoginPage />} />
+					<Route path={REGISTER_URL} element={<RegisterPage />} />
+					<Route path={HOME_URL} element={<HomePage />} />
+					<Route path={HISTORY_URL} element={<HistoryPage />} />
+					<Route path={BOOKMARK_URL} element={<BookmarkPage />} />
 					<Route path="/" element={<HomePage />} />
 				</Routes>
 			</Container>
