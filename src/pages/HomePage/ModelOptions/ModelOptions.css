@@ -1,14 +1,14 @@
 .custom-dropdown .dropdown-toggle {
-    background-color: white;
-    border: 1px solid #ced4da;
-    color: #495057;
+	background-color: white;
+	border: 1px solid #ced4da;
+	color: #495057;
 }
 
 .custom-dropdown .dropdown-toggle:active,
 .custom-dropdown .dropdown-toggle:focus {
-    box-shadow: none;
+	box-shadow: none;
 }
 
 .custom-dropdown .dropdown-item {
-    cursor: pointer;
+	cursor: pointer;
 }

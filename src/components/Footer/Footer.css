@@ -1,12 +1,12 @@
 footer {
-    color: var(--black-color);
-    width: 100%;
-    direction: ltr;
-    text-align: center;
-    padding-bottom: 0.5em;
-    font-size: 0.8em;
+	color: var(--black-color);
+	width: 100%;
+	direction: ltr;
+	text-align: center;
+	padding-bottom: 0.5em;
+	font-size: 0.8em;
 }
 
 footer a {
-    color: var(--black-color);
+	color: var(--black-color);
 }

@@ -14,7 +14,7 @@ const BookmarkPage = () => {
 				fileGenerated: false,
 				fileName: null,
 				questionCount: 3,
-        bookmarked: true,
+				bookmarked: true,
 			},
 			{
 				id: 2,
@@ -22,7 +22,7 @@ const BookmarkPage = () => {
 				fileGenerated: true,
 				fileName: 'document.pdf',
 				questionCount: 5,
-        bookmarked: true,
+				bookmarked: true,
 			},
 		];
 		setSessions(bookmarkedSessions);

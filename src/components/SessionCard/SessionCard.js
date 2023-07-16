@@ -19,7 +19,6 @@ const SessionCard = ({ session }) => {
 						{session.fileGenerated
 							? session.fileName
 							: session.inputText.slice(0, 100)}
-
 					</CardTitle>
 					<CardText>عدد الأسئلة: {session.questionCount}</CardText>
 				</CardBody>

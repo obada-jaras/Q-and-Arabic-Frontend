@@ -1,5 +1,4 @@
 .dragging {
-    background-color: var(--gray-color);
-    border: 2px dashed var(--primary-color);
-  }
-  
+	background-color: var(--gray-color);
+	border: 2px dashed var(--primary-color);
+}
