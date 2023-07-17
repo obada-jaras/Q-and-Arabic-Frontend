@@ -1,31 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import SessionCard from '../../components/SessionCard/SessionCard';
+import { fetchHistory } from '../../services/history';
 
 const HistoryPage = () => {
 	const [sessions, setSessions] = useState([]);
 
 	useEffect(() => {
-		// Replace this with your API fetching logic
-		const historySessions = [
-			{
-				id: 1,
-				inputText:
-					'تعد جامعة بيرزيت الأولى من نوعها في فلسطين والشتات...',
-				fileGenerated: false,
-				fileName: null,
-				questionCount: 3,
-				bookmarked: false,
-			},
-			{
-				id: 2,
-				inputText: null,
-				fileGenerated: true,
-				fileName: 'document222.pdf',
-				questionCount: 5,
-				bookmarked: true,
-			},
-		];
-		setSessions(historySessions);
+		(async () => {
+			try {
+				const historySessions = await fetchHistory();
+				setSessions(historySessions);
+			} catch (error) {
+				console.error('Failed to fetch history sessions: ', error);
+			}
+		})();
 	}, []);
 
 	return (

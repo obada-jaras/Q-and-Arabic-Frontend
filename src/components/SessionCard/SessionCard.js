@@ -1,10 +1,21 @@
-// SessionCard.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { bookmarkQA } from '../../services/bookmarkQA'; 
 
 const SessionCard = ({ session }) => {
+	const [isBookmarked, setIsBookmarked] = useState(session.bookmarked);
+
+	const handleBookmarkClick = async () => {
+		try {
+			await bookmarkQA(session.id);
+			setIsBookmarked(!isBookmarked);
+		} catch (error) {
+			console.error('Failed to toggle bookmark: ', error);
+		}
+	};
+
 	return (
 		<Card className="mb-4 bg-gray-hover">
 			<Link
@@ -16,22 +27,20 @@ const SessionCard = ({ session }) => {
 						tag="h5"
 						className="color-primary mb-3 position-relative"
 					>
-						{session.fileGenerated
-							? session.fileName
-							: session.inputText.slice(0, 100)}
+						{session.title
+							? session.title
+							: session.text.slice(0, 100)}
 					</CardTitle>
-					<CardText>عدد الأسئلة: {session.questionCount}</CardText>
+					<CardText>عدد الأسئلة: {session.qapairs.length}</CardText>
 				</CardBody>
 			</Link>
 
 			<Button
 				className="position-absolute top-0 start-0 mt-2 me-2 color-primary"
 				color="link"
-				onClick={() => {
-					/* Implement bookmark/unbookmark functionality */
-				}}
+				onClick={handleBookmarkClick}
 			>
-				{session.bookmarked ? <FaBookmark /> : <FaRegBookmark />}
+				{isBookmarked ? <FaBookmark /> : <FaRegBookmark />}
 			</Button>
 		</Card>
 	);

@@ -2,19 +2,15 @@ import axios from 'axios';
 import { getAuthToken } from './auth';
 import { BACKEND_API_ROUTES } from '../constants/backendApi';
 
-export async function bookmarkQA(id) {
+export async function fetchHistory() {
 	try {
 		const authToken = getAuthToken();
 
-		const response = await axios.post(
-			BACKEND_API_ROUTES.TOGGLE_BOOKMARK(id),
-			{},
-			{
-				headers: {
-					Authorization: `Token ${authToken}`,
-				},
+		const response = await axios.get(BACKEND_API_ROUTES.HISTORY, {
+			headers: {
+				Authorization: `Token ${authToken}`,
 			},
-		);
+		});
 
 		return response.data;
 	} catch (error) {
