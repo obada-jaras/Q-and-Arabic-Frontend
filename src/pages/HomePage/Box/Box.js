@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import FileUploadTab from './FileUploadTab/FileUploadTab';
 import TextInputTab from './TextInputTab/TextInputTab';
 
-function Box({ context, setContext }) {
+function Box({ context, setContext, setTitle }) {
 	const [activeTab, setActiveTab] = useState('1');
 
 	const toggle = (tab) => {
@@ -45,10 +45,17 @@ function Box({ context, setContext }) {
 
 			<TabContent activeTab={activeTab}>
 				<TabPane tabId="1">
-					<FileUploadTab setContext={setContext} />
+					<FileUploadTab
+						setContext={setContext}
+						setTitle={setTitle}
+					/>
 				</TabPane>
 				<TabPane tabId="2">
-					<TextInputTab context={context} setContext={setContext} />
+					<TextInputTab
+						context={context}
+						setContext={setContext}
+						setTitle={setTitle}
+					/>
 				</TabPane>
 			</TabContent>
 		</Card>

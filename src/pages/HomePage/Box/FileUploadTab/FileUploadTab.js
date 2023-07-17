@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Button } from 'reactstrap';
 import { useDropzone } from 'react-dropzone';
 
 import './FileUploadTab.css';
+import { extractTextFromFile } from '../../../../utils/fileHandler';
 
-const FileUploadTab = () => {
+const FileUploadTab = ({ setContext, setTitle }) => {
+	const onDrop = useCallback(
+		async (acceptedFiles) => {
+			if (acceptedFiles.length !== 1) {
+				return;
+			}
+
+			const file = acceptedFiles[0];
+			const text = await extractTextFromFile(file);
+			setContext(text);
+			setTitle(file.name);
+		},
+		[setContext],
+	);
+
 	const {
 		getRootProps,
 		getInputProps,
@@ -12,10 +27,11 @@ const FileUploadTab = () => {
 		acceptedFiles,
 		fileRejections,
 	} = useDropzone({
-		accept: 'application/pdf, text/plain',
+		accept: 'text/plain',
 		maxFiles: 1,
+		onDrop,
 		validator: (file) => {
-			if (!['application/pdf', 'text/plain'].includes(file.type)) {
+			if (!['text/plain'].includes(file.type)) {
 				return {
 					code: 'file-type',
 					message: 'الرجاء رفع ملف واحد بإحدى الصيغ المدعومة.',
@@ -25,7 +41,7 @@ const FileUploadTab = () => {
 	});
 
 	const files = acceptedFiles.map((file) => (
-		<p key={file.path}>{file.path}</p>
+		<p key={file.name}>{file.name}</p>
 	));
 
 	const rejectedFiles =
@@ -45,7 +61,7 @@ const FileUploadTab = () => {
 					? 'أسقط الملف هنا...'
 					: 'أو قم بسحب الملف واسقاطه هنا'}
 			</p>
-			<p className="text-left">الملفات المدعومة: pdf، txt</p>
+			<p className="text-left">الملفات المدعومة: ، txt</p>
 			{files}
 			{rejectedFiles && <p className="color-primary">{rejectedFiles}</p>}
 		</div>

@@ -12,6 +12,7 @@ const HomePage = () => {
 	const [showQA, setShowQA] = useState(false);
 
 	const [context, setContext] = useState('');
+	const [title, setTitle] = useState('');
 	const [QGModel, setQGModel] = useState('AraT5');
 	const [QAModel, setQAModel] = useState('AraT5');
 	const [numQuestions, setNumQuestions] = useState(1);
@@ -23,6 +24,7 @@ const HomePage = () => {
 				QGModel,
 				QAModel,
 				numQuestions,
+				title,
 			);
 			setQAList(response.qapairs);
 			setShowQA(true);
@@ -33,7 +35,11 @@ const HomePage = () => {
 
 	return (
 		<div className="d-flex mt-5 flex-column ">
-			<Box setContext={setContext} context={context} />
+			<Box
+				setContext={setContext}
+				context={context}
+				setTitle={setTitle}
+			/>
 
 			<ModelOptions
 				QGModel={QGModel}
