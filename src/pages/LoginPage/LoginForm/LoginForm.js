@@ -1,16 +1,35 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { loginUser } from '../../../services/login';
+import { FRONTEND_ROUTES } from '../../../constants/frontendUrls';
 import PasswordField from '../../../components/PasswordField/PasswordField';
 
 const LoginForm = () => {
+	const navigate = useNavigate();
+
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		const user = {
+			username: event.target.username.value,
+			password: event.target.password.value,
+		};
+
+		try {
+			await loginUser(user);
+			navigate(FRONTEND_ROUTES.HOME);
+		} catch (error) {
+			window.alert(error.message);
+		}
+	};
+
 	return (
-		<Form className="px-3">
+		<Form className="px-3" onSubmit={handleSubmit}>
 			<FormGroup>
 				<Input
-					type="email"
-					name="email"
-					id="email"
-					placeholder="البريد الإلكتروني"
+					name="username"
+					id="username"
+					placeholder="اسم المستخدم"
 					autoComplete="username"
 					className="rounded-3 mt-3"
 				/>
