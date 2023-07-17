@@ -23,7 +23,6 @@ const HistoryPage = () => {
 				<SessionCard
 					key={session.id}
 					session={session}
-					bookmarked={true}
 				/>
 			))}
 		</div>
