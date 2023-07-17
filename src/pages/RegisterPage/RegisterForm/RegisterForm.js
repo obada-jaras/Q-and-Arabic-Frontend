@@ -19,7 +19,7 @@ const RegisterForm = () => {
 			await registerUser(user);
 			navigate(FRONTEND_ROUTES.LOGIN);
 		} catch (error) {
-			// Handle the error here...
+			window.alert(error.message);
 		}
 	};
 
