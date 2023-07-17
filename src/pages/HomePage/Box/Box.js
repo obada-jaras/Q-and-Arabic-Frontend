@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-
 import { Card, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import classnames from 'classnames';
 import FileUploadTab from './FileUploadTab/FileUploadTab';
 import TextInputTab from './TextInputTab/TextInputTab';
 
-function Box() {
+function Box({ context, setContext }) {
 	const [activeTab, setActiveTab] = useState('1');
 
 	const toggle = (tab) => {
@@ -46,10 +45,10 @@ function Box() {
 
 			<TabContent activeTab={activeTab}>
 				<TabPane tabId="1">
-					<FileUploadTab />
+					<FileUploadTab setContext={setContext} />
 				</TabPane>
 				<TabPane tabId="2">
-					<TextInputTab />
+					<TextInputTab context={context} setContext={setContext} />
 				</TabPane>
 			</TabContent>
 		</Card>

@@ -11,12 +11,16 @@ import {
 } from 'reactstrap';
 import './ModelOptions.css';
 
-const ModelOptions = () => {
-	const [QGModel, setQGModel] = useState('AraT5'); // Question Generation Model
-	const [QAModel, setQAModel] = useState('AraT5'); // Question Answering Model
+const ModelOptions = ({
+	QGModel,
+	QAModel,
+	numQuestions,
+	setQGModel,
+	setQAModel,
+	setNumQuestions,
+}) => {
 	const [QGDropdownOpen, setQGDropdownOpen] = useState(false);
 	const [QADropdownOpen, setQADropdownOpen] = useState(false);
-	const [numQuestions, setNumQuestions] = useState(1); // Number of questions
 
 	const toggleQGDropdown = () => setQGDropdownOpen((prevState) => !prevState);
 	const toggleQADropdown = () => setQADropdownOpen((prevState) => !prevState);
@@ -25,7 +29,7 @@ const ModelOptions = () => {
 
 	return (
 		<div>
-			<Row form className="my-2">
+			<Row className="my-2">
 				<Col md={4} className="text-center">
 					<Label for="QGModel">توليد الأسئلة</Label>
 					<Dropdown
