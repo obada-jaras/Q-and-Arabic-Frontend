@@ -1,5 +1,7 @@
-export const HOME_URL = "/home";
-export const HISTORY_URL = "/history";
-export const BOOKMARK_URL = "/bookmark";
-export const LOGIN_URL = "/login";
-export const REGISTER_URL = "/register";
+export const FRONTEND_ROUTES = {
+	LOGIN: '/login',
+	REGISTER: '/register',
+	HOME: '/home',
+	HISTORY: '/history',
+	BOOKMARK: '/bookmark',
+};
