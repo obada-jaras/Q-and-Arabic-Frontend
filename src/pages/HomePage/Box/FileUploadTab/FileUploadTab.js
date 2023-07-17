@@ -17,7 +17,7 @@ const FileUploadTab = ({ setContext, setTitle }) => {
 			setContext(text);
 			setTitle(file.name);
 		},
-		[setContext],
+		[setContext, setTitle]
 	);
 
 	const {
