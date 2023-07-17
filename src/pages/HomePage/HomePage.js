@@ -9,6 +9,7 @@ import { generateQA } from '../../services/generateQA';
 
 const HomePage = () => {
 	const [qaList, setQAList] = useState([]);
+	const [queryId, setQueryId] = useState(null);
 	const [showQA, setShowQA] = useState(false);
 
 	const [context, setContext] = useState('');
@@ -16,6 +17,7 @@ const HomePage = () => {
 	const [QGModel, setQGModel] = useState('AraT5');
 	const [QAModel, setQAModel] = useState('AraT5');
 	const [numQuestions, setNumQuestions] = useState(1);
+	const [isBookmarked, setIsBookmarked] = useState(false);
 
 	const generateQuestionsAndAnswers = async () => {
 		try {
@@ -27,6 +29,8 @@ const HomePage = () => {
 				title,
 			);
 			setQAList(response.qapairs);
+			setQueryId(response.id);
+			setIsBookmarked(response.bookmarked);
 			setShowQA(true);
 		} catch (error) {
 			window.alert('Failed to generate questions and answers: ', error);
@@ -60,7 +64,14 @@ const HomePage = () => {
 				</Button>
 			</div>
 
-			{showQA && <QATools qaList={qaList} />}
+			{showQA && (
+				<QATools
+					queryId={queryId}
+					qaList={qaList}
+					isBookmarked={isBookmarked}
+					setIsBookmarked={setIsBookmarked}
+				/>
+			)}
 			{showQA && <QAList qaList={qaList} />}
 		</div>
 	);

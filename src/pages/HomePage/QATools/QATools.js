@@ -1,8 +1,10 @@
 import React from 'react';
 import { Button } from 'reactstrap';
-import { FiCopy, FiBookmark, FiPrinter } from 'react-icons/fi';
+import { FiCopy, FiPrinter } from 'react-icons/fi';
+import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
+import { bookmarkQA } from '../../../services/bookmarkQA';
 
-const QATools = ({ qaList }) => {
+const QATools = ({ queryId, qaList, isBookmarked, setIsBookmarked }) => {
 	const copyAllToClipboard = () => {
 		const textToCopy = qaList
 			.map((qa) => `${qa.question}\n\n${qa.answer}`)
@@ -10,8 +12,14 @@ const QATools = ({ qaList }) => {
 		navigator.clipboard.writeText(textToCopy);
 	};
 
-	const addToBookmarks = () => {
-		// Add functionality here
+	const addToBookmarks = async () => {
+		try {
+			await bookmarkQA(queryId);
+			setIsBookmarked(!isBookmarked);
+			window.alert('Bookmark updated successfully!');
+		} catch (error) {
+			window.alert('Failed to update bookmark: ', error);
+		}
 	};
 
 	const printAll = () => {
@@ -36,7 +44,7 @@ const QATools = ({ qaList }) => {
 				className="border-0 color-black bg-transparent bg-gray-hover fs-4"
 				onClick={addToBookmarks}
 			>
-				<FiBookmark />
+				{isBookmarked ? <FaBookmark /> : <FaRegBookmark />}
 				{/* حفظ */}
 			</Button>
 			<Button
