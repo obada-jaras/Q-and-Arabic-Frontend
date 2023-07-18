@@ -16,7 +16,6 @@ const QATools = ({ queryId, qaList, isBookmarked, setIsBookmarked }) => {
 		try {
 			await bookmarkQA(queryId);
 			setIsBookmarked(!isBookmarked);
-			window.alert('Bookmark updated successfully!');
 		} catch (error) {
 			window.alert('Failed to update bookmark: ', error);
 		}
