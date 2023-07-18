@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
 import Box from './Box/Box';
@@ -6,6 +7,7 @@ import ModelOptions from './ModelOptions/ModelOptions';
 import QATools from './QATools/QATools';
 import QAList from './QAList/QAList';
 import { generateQA } from '../../services/generateQA';
+import sessionService from '../../services/session';
 
 const HomePage = () => {
 	const [qaList, setQAList] = useState([]);
@@ -18,6 +20,33 @@ const HomePage = () => {
 	const [QAModel, setQAModel] = useState('AraT5');
 	const [numQuestions, setNumQuestions] = useState(1);
 	const [isBookmarked, setIsBookmarked] = useState(false);
+
+	const { id } = useParams();
+
+	useEffect(() => {
+		if (id) {
+			fetchSessionData();
+		}
+	}, [id]);
+
+	const fetchSessionData = async () => {
+		try {
+			const data = await sessionService.getSession(id);
+
+			//populate the state with the fetched data
+			setContext(data.text);
+			setTitle(data.title);
+			setQGModel(data.ai_model.split(',')[0]);
+			setQAModel(data.ai_model.split(',')[1]);
+			setNumQuestions(data.num_of_questions);
+			setIsBookmarked(data.bookmarked);
+			setQAList(data.qapairs);
+			setQueryId(data.id);
+			setShowQA(true);
+		} catch (error) {
+			window.alert('Failed to fetch session data: ', error);
+		}
+	};
 
 	const generateQuestionsAndAnswers = async () => {
 		try {

@@ -4,4 +4,5 @@ export const FRONTEND_ROUTES = {
 	HOME: '/home',
 	HISTORY: '/history',
 	BOOKMARK: '/bookmark',
+	SESSION: '/session/:id',
 };

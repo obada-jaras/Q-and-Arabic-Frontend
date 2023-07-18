@@ -3,6 +3,7 @@ import { Card, CardBody, CardTitle, CardText, Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { FaRegBookmark, FaBookmark } from 'react-icons/fa';
 import { bookmarkQA } from '../../services/bookmarkQA'; 
+import { FRONTEND_ROUTES } from '../../constants/frontendUrls';
 
 const SessionCard = ({ session }) => {
 	const [isBookmarked, setIsBookmarked] = useState(session.bookmarked);
@@ -19,7 +20,7 @@ const SessionCard = ({ session }) => {
 	return (
 		<Card className="mb-4 bg-gray-hover">
 			<Link
-				to={`/session/${session.id}`}
+				to={FRONTEND_ROUTES.SESSION.replace(':id', session.id)}
 				className="color-black text-decoration-none"
 			>
 				<CardBody>

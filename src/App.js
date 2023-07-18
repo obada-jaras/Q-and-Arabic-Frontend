@@ -52,6 +52,12 @@ function RouteContent() {
 						path={FRONTEND_ROUTES.BOOKMARK}
 						element={<BookmarkPage />}
 					/>
+
+					<Route
+						path={FRONTEND_ROUTES.SESSION}
+						element={<HomePage />}
+					/>
+
 					<Route path="/" element={<HomePage />} />
 				</Routes>
 			</Container>
