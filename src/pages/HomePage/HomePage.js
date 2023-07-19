@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 
 import Box from './Box/Box';
 import ModelOptions from './ModelOptions/ModelOptions';
@@ -10,6 +10,8 @@ import { generateQA } from '../../services/generateQA';
 import sessionService from '../../services/session';
 
 const HomePage = () => {
+	const [isLoading, setIsLoading] = useState(false);
+
 	const [qaList, setQAList] = useState([]);
 	const [queryId, setQueryId] = useState(null);
 	const [showQA, setShowQA] = useState(false);
@@ -49,6 +51,7 @@ const HomePage = () => {
 	};
 
 	const generateQuestionsAndAnswers = async () => {
+		setIsLoading(true);
 		try {
 			const response = await generateQA(
 				context,
@@ -63,6 +66,8 @@ const HomePage = () => {
 			setShowQA(true);
 		} catch (error) {
 			window.alert('Failed to generate questions and answers: ', error);
+		} finally {
+			setIsLoading(false);
 		}
 	};
 
@@ -88,8 +93,13 @@ const HomePage = () => {
 					color="primary"
 					className="mt-5 px-5"
 					onClick={generateQuestionsAndAnswers}
+					disabled={isLoading}
 				>
-					إنشاء الأسئلة وإجاباتها
+					{isLoading ? (
+						<Spinner size="sm" color="light" />
+					) : (
+						'إنشاء الأسئلة وإجاباتها'
+					)}
 				</Button>
 			</div>
 
