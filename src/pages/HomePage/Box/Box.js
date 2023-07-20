@@ -5,7 +5,7 @@ import FileUploadTab from './FileUploadTab/FileUploadTab';
 import TextInputTab from './TextInputTab/TextInputTab';
 
 function Box({ context, setContext, setTitle }) {
-	const [activeTab, setActiveTab] = useState('1');
+	const [activeTab, setActiveTab] = useState('2');
 
 	const toggle = (tab) => {
 		if (activeTab !== tab) setActiveTab(tab);
