@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Spinner } from 'reactstrap';
 
@@ -25,11 +25,19 @@ const HomePage = () => {
 
 	const { id } = useParams();
 
+	const outputRef = useRef(null);
+
 	useEffect(() => {
 		if (id) {
 			fetchSessionData();
 		}
 	}, [id]);
+
+	useEffect(() => {
+		if (showQA && outputRef.current) {
+			outputRef.current.scrollIntoView({ behavior: 'smooth' });
+		}
+	}, [showQA]);
 
 	const fetchSessionData = async () => {
 		try {
@@ -104,14 +112,16 @@ const HomePage = () => {
 			</div>
 
 			{showQA && (
-				<QATools
-					queryId={queryId}
-					qaList={qaList}
-					isBookmarked={isBookmarked}
-					setIsBookmarked={setIsBookmarked}
-				/>
+				<div ref={outputRef}>
+					<QATools
+						queryId={queryId}
+						qaList={qaList}
+						isBookmarked={isBookmarked}
+						setIsBookmarked={setIsBookmarked}
+					/>
+					<QAList qaList={qaList} />
+				</div>
 			)}
-			{showQA && <QAList qaList={qaList} />}
 		</div>
 	);
 };
