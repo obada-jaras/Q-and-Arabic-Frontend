@@ -81,11 +81,19 @@ const HomePage = () => {
 		setIsLoading(true);
 		setProgress(0);
 
+		const models = {
+			AraBERT: 'AraELECTRA',
+			AraGPT2: 'AraT5',
+		};
+
+		let finalQAModel = models[QAModel] || QAModel;
+		let finalQGModel = models[QGModel] || QGModel;
+
 		try {
 			const response = await generateQA(
 				context,
-				QGModel,
-				QAModel,
+				finalQGModel,
+				finalQAModel,
 				numQuestions,
 				title,
 			);

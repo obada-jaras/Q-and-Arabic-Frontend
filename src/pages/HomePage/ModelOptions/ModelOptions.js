@@ -81,9 +81,9 @@ const ModelOptions = ({
 								AraBERT
 							</DropdownItem>
 							<DropdownItem
-								onClick={() => setQAModel('AraElectra')}
+								onClick={() => setQAModel('AraELECTRA')}
 							>
-								AraElectra
+								AraELECTRA
 							</DropdownItem>
 						</DropdownMenu>
 					</Dropdown>
