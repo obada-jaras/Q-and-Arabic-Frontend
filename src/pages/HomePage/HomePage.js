@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, Spinner } from 'reactstrap';
+import { ProgressBar } from 'react-bootstrap';
 
 import Box from './Box/Box';
 import ModelOptions from './ModelOptions/ModelOptions';
@@ -11,6 +12,7 @@ import sessionService from '../../services/session';
 
 const HomePage = () => {
 	const [isLoading, setIsLoading] = useState(false);
+	const [progress, setProgress] = useState(0);
 
 	const [qaList, setQAList] = useState([]);
 	const [queryId, setQueryId] = useState(null);
@@ -32,6 +34,23 @@ const HomePage = () => {
 			fetchSessionData();
 		}
 	}, [id]);
+
+	useEffect(() => {
+		let interval;
+		const C = 0.05; // Adjust this to control the slowing down rate
+		if (isLoading) {
+			interval = setInterval(() => {
+				setProgress((prev) => {
+					if (prev >= numQuestions) {
+						clearInterval(interval);
+						return numQuestions;
+					}
+					return prev + C / Math.log(prev + 2);
+				});
+			}, 500);
+		}
+		return () => clearInterval(interval);
+	}, [isLoading, numQuestions]);
 
 	useEffect(() => {
 		if (showQA && outputRef.current) {
@@ -60,6 +79,8 @@ const HomePage = () => {
 
 	const generateQuestionsAndAnswers = async () => {
 		setIsLoading(true);
+		setProgress(0);
+
 		try {
 			const response = await generateQA(
 				context,
@@ -110,6 +131,15 @@ const HomePage = () => {
 					)}
 				</Button>
 			</div>
+
+			{isLoading && (
+				<ProgressBar
+					now={(Math.exp(progress) / numQuestions) * 100}
+					striped
+					animated
+					className="mt-3"
+				/>
+			)}
 
 			{showQA && (
 				<div ref={outputRef}>
